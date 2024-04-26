@@ -1,9 +1,11 @@
 services:
   - type: web
-    name: curriculum42
     plan: free
+    name: curriculum42
+    runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn backend.src.src.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: "src.settings.production"
+
